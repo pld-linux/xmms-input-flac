@@ -1,0 +1,52 @@
+--- flac-1.4.1/include/Makefile.am.orig	2022-09-01 16:41:44.790332694 +0200
++++ flac-1.4.1/include/Makefile.am	2023-03-27 16:21:38.605145317 +0200
+@@ -20,4 +20,4 @@ if FLaC__WITH_CPPLIBS
+ CPPLIBS_DIRS = FLAC++
+ endif
+ 
+-SUBDIRS = FLAC $(CPPLIBS_DIRS) share test_libs_common
++SUBDIRS = share
+--- flac-1.4.1/Makefile.am.orig	2022-09-21 20:57:31.770347502 +0200
++++ flac-1.4.1/Makefile.am	2023-03-27 16:22:33.748179915 +0200
+@@ -31,7 +31,7 @@
+ 
+ ACLOCAL_AMFLAGS = -I m4
+ 
+-SUBDIRS = doc include m4 man src test microbench oss-fuzz
++SUBDIRS = include m4 src
+ 
+ if EXAMPLES
+ SUBDIRS += examples
+--- flac-1.4.1/src/Makefile.am.orig	2022-09-01 16:41:44.794332706 +0200
++++ flac-1.4.1/src/Makefile.am	2023-03-27 16:23:07.364664466 +0200
+@@ -29,17 +29,8 @@ PROGRAMS_DIRS = flac metaflac
+ endif
+ 
+ SUBDIRS = \
+-	libFLAC \
+ 	share \
+-	$(PROGRAMS_DIRS) \
+-	$(XMMS_DIRS) \
+-	test_grabbag \
+-	test_libs_common \
+-	test_libFLAC \
+-	test_seeking \
+-	test_streams \
+-	utils \
+-	$(CPPLIBS_DIRS)
++	$(XMMS_DIRS)
+ 
+ EXTRA_DIST = \
+ 	CMakeLists.txt
+--- flac-1.4.1/src/plugin_xmms/Makefile.am.orig	2022-09-01 16:41:44.810332751 +0200
++++ flac-1.4.1/src/plugin_xmms/Makefile.am	2023-03-27 16:25:45.833805964 +0200
+@@ -59,8 +59,7 @@ libxmms_flac_la_LIBADD = \
+ 	$(top_builddir)/src/share/replaygain_analysis/libreplaygain_analysis.la \
+ 	$(top_builddir)/src/share/replaygain_synthesis/libreplaygain_synthesis.la \
+ 	$(top_builddir)/src/share/utf8/libutf8.la \
+-	$(top_builddir)/src/libFLAC/libFLAC.la \
+-	-L$(top_builddir)/src/libFLAC/.libs \
++	-lFLAC \
+ 	@XMMS_LIBS@ \
+ 	@LIBICONV@
+ libxmms_flac_la_LDFLAGS = -module -avoid-version
