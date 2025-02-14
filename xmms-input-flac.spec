@@ -42,7 +42,7 @@ Wtyczka dla XMMS umożliwiająca odtwarzanie plików w formacie FLAC.
 
 %prep
 %setup -q -n flac-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %{__rm} m4/ogg.m4
 
