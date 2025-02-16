@@ -1,0 +1,20 @@
+--- flac-1.4.1/src/plugin_xmms/plugin.c.orig	2022-09-01 16:41:44.810332751 +0200
++++ flac-1.4.1/src/plugin_xmms/plugin.c	2025-02-16 17:11:24.204751869 +0100
+@@ -44,6 +44,7 @@
+ 
+ #include "FLAC/all.h"
+ #include "plugin_common/all.h"
++#include "share/compat.h"
+ #include "share/grabbag.h"
+ #include "share/replaygain_synthesis.h"
+ #include "configure.h"
+--- flac-1.4.1/src/plugin_xmms/http.c.orig	2021-07-08 20:09:17.556076396 +0200
++++ flac-1.4.1/src/plugin_xmms/http.c	2025-02-16 17:12:37.375058193 +0100
+@@ -46,6 +46,7 @@
+ #include "FLAC/format.h"
+ #include "configure.h"
+ #include "locale_hack.h"
++#include "share/compat.h"
+ 
+ /* on FreeBSD we get socklen_t from <sys/socket.h> */
+ #if (!defined HAVE_SOCKLEN_T) && !defined(__FreeBSD__)
