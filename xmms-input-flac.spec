@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Wtyczka FLAC dla XMMS
 Name:		xmms-input-flac
 # last version containing xmms plugin
 Version:	1.4.1
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Libraries
 Source0:	https://downloads.xiph.org/releases/flac/flac-%{version}.tar.xz
